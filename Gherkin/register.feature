@@ -9,7 +9,15 @@ Feature: Identify responders
             And The responder fills in their information
             And The responder clicks enter
             And The phone number is vaild
-        Then The system will send the responder a text message to confirm their phone number 
+        Then The system will send the responder a text message to confirm their phone number
+        
+    Scenario: Responder registers to use the app with invalid information
+        Given The responder is not logged in on their phone  
+        When The responder launches the app
+            And The responder clicks register
+            And The responder fills in invalid information
+            And The responder clicks enter
+        Then The system will request the responder re-enter valid information
  
     Scenario: Responder verifies their phone number
         Given The responder has filled out the information form 
